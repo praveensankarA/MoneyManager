@@ -1,0 +1,76 @@
+/* Write your CSS here */
+.money-detail-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-top: 20px;
+  flex-direction: column;
+}
+@media (min-width: 588px) {
+  .money-detail-container {
+    flex-direction: row;
+    width: 80%;
+    margin-left: 5px;
+    justify-content: space-between;
+  }
+}
+.monet-type-logo-card {
+  width: 100%;
+  border-radius: 12px;
+  display: flex;
+  margin-top: 14px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+@media (min-width: 588px) {
+  .monet-type-logo-card {
+    margin-top: 10px;
+    width: 30%;
+    padding: 20px 10px;
+    margin-right: 10px;
+  }
+}
+
+.balance {
+  border: 1.4px solid #84cc16;
+  background-color: #e2ffb7;
+}
+.income {
+  border: 1.4px solid #06b6d4;
+  background-color: #cff8ff;
+}
+.expense {
+  border: 1px solid #7c3aed;
+  background-color: #e5dbf5;
+}
+
+.money-logo {
+  width: 60px;
+  height: 60px;
+}
+.money-type-name-container {
+  margin-right: 24px;
+  color: #475569;
+}
+.money-type-name-ele {
+  margin-bottom: 1px;
+  font-size: 15px;
+}
+
+.money-type-amount-ele {
+  margin-top: 8px;
+  font-size: 20px;
+}
+@media (min-width: 588px) {
+  .money-type-name-ele {
+    font-size: 16px;
+  }
+  .money-type-amount-ele {
+    font-size: 23px;
+  }
+  .money-logo {
+    width: 80px;
+    height: 80px;
+  }
+}

@@ -1,0 +1,154 @@
+/* Write your CSS here */
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'roboto';
+}
+.name-container {
+  width: 80%;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
+  height: 26vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: #475569;
+}
+@media (min-width: 580px) {
+  .name-container {
+    align-items: flex-start;
+    padding-left: 40px;
+  }
+}
+.main-title {
+  margin-bottom: 0px;
+  color: #475569;
+}
+@media (min-width: 580px) {
+  .main-title {
+    font-size: 35px;
+  }
+}
+
+.main-title-subheading {
+  color: #0b69ff;
+  font-weight: 800;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.form-history-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 27px;
+  width: 80%;
+}
+@media (min-width: 588px) {
+  .form-history-container {
+    display: flex;
+    flex-direction: row;
+    width: 78%;
+    justify-content: space-between;
+  }
+}
+.form-container {
+  border: 2px solid rgb(236, 226, 226);
+  border-radius: 12px;
+  padding: 20px 30px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+@media (min-width: 588px) {
+  .form-container {
+    width: 40%;
+    border: 2px solid #bcbec2;
+  }
+}
+.money-add-title {
+  font-size: 30px;
+  font-family: 'roboto';
+}
+.title-input {
+  width: 100%;
+  padding: 4px 9px;
+  margin-top: 4px;
+  border-radius: 7px;
+  font-size: 20px;
+  outline: none;
+  border: 2px solid #cbd5e1;
+  /* color: #1e293b; */
+  background-color: transparent;
+}
+label {
+  color: #9b9fa5;
+  font-weight: 800;
+  font-size: 18px;
+}
+.add-btn {
+  color: #fff;
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+  font-size: 19px;
+  background-color: #0b69ff;
+  padding: 6px 20px;
+}
+.history-container {
+  width: 100%;
+  border: 2px solid rgb(236, 226, 226);
+  border-radius: 12px;
+  padding: 20px 30px;
+  margin-bottom: 50px;
+}
+.history-item-main-container {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.list-ele-head-list {
+  display: flex;
+
+  width: 106%;
+  padding-right: 23px;
+  font-weight: 600;
+  justify-content: space-evenly;
+  border: 1px solid gray;
+}
+.list-ele-head-list-Items {
+  display: flex;
+  width: 80%;
+  color: #475569;
+  justify-content: space-between;
+  margin-right: 15px;
+}
+@media (min-width: 588px) {
+  .history-container {
+    width: 52%;
+    border: 2px solid #bcbec2;
+    border-radius: 12px;
+    padding: 20px 30px;
+    padding-left: 50px;
+    margin-bottom: 50px;
+  }
+
+  .list-ele-head-list {
+    display: flex;
+    width: 90%;
+    /* padding-right: 29px; */
+    font-weight: 600;
+    justify-content: space-between;
+    border: 1px solid #9b9fa5;
+  }
+  .list-ele-head-list-Items {
+    display: flex;
+    width: 80%;
+    color: #475569;
+    justify-content: space-around;
+  }
+}
