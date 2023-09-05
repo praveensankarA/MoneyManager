@@ -10,6 +10,11 @@
   width: 106%;
   padding-right: 10px;
 }
+@media (min-width: 588px) {
+  .history-list-items {
+    width: 90%;
+  }
+}
 .del-btn {
   background-color: transparent;
   border: none;

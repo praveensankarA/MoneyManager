@@ -20,59 +20,98 @@ const transactionTypeOptions = [
 
 class MoneyManager extends Component {
   state = {
-    title: '',
-    amount: '',
+    titleInp: '',
+    amountInp: '',
     amountType: transactionTypeOptions[0].optionId,
-    amountList: [
-      {
-        id: uuidv4(),
-        title: 'income',
-        amount: 5000,
-        type: 'Income',
-      },
-      {
-        id: uuidv4(),
-        title: 'income',
-        amount: 5000,
-        type: 'Income',
-      },
-      {
-        id: uuidv4(),
-        title: 'income',
-        amount: 5000,
-        type: 'Income',
-      },
-    ],
+    amountList: [],
   }
 
   addFunction = event => {
     event.preventDefault()
-    console.log('add Fun')
-  }
+    const {titleInp, amountInp, amountType, amountList} = this.state
 
-  typeBtnOnchange = event => {
-    console.log(event.target.value)
+    if (titleInp !== '' && amountInp !== '') {
+      const newList = {
+        id: uuidv4(),
+        title: titleInp,
+        amount: parseInt(amountInp),
+        type: amountType,
+      }
+
+      this.setState({
+        amountList: [...amountList, newList],
+        amountInp: '',
+        titleInp: '',
+        amountType: transactionTypeOptions[0].optionId,
+      })
+    }
   }
 
   getBalnce = () => {
     const {amountList} = this.state
-    const balance = 0
-    amountList.map(each => (balance += each.amount))
+    let balance = 0
+    amountList.forEach(each => {
+      if (each.type === 'INCOME') {
+        balance += each.amount
+      } else if (each.type === 'EXPENSES') {
+        balance -= each.amount
+      }
+    })
     return balance
   }
 
-  render() {
+  getIncome = () => {
+    const {amountList} = this.state
+    let income = 0
+    amountList.forEach(each => {
+      if (each.type === 'INCOME') {
+        income += each.amount
+      }
+    })
+    return income
+  }
+
+  getExpense = () => {
+    const {amountList} = this.state
+    let Expense = 0
+    amountList.forEach(each => {
+      if (each.type === 'EXPENSES') {
+        Expense += each.amount
+      }
+    })
+    return Expense
+  }
+
+  titleEleOnChangeFunction = event => {
+    this.setState({titleInp: event.target.value})
+  }
+
+  amountEleOnChangeFunction = event => {
+    this.setState({amountInp: event.target.value})
+  }
+
+  typeEleOnChangeFunction = event => {
+    this.setState({amountType: event.target.value})
+  }
+
+  deleteList = id => {
     const {title, amount, amountType, amountList} = this.state
-    const currentBalance = this.getBalnce
-    const currentIncome = 0
-    const currentExpense = 0
+    const a = amountList.filter(each => each.id !== id)
+    this.setState({amountList: a})
+  }
+
+  render() {
+    const {titleInp, amountInp, amountType, amountList} = this.state
+    const currentBalance = this.getBalnce()
+    const currentIncome = this.getIncome()
+    const currentExpense = this.getExpense()
 
     return (
       <div className="main-container">
         <div className="name-container">
           <h1 className="main-title">Hi Richard</h1>
           <p>
-            Welcome to your{' '}
+            Welcome to your
             <span className="main-title-subheading">Money Manager</span>
           </p>
         </div>
@@ -84,18 +123,26 @@ class MoneyManager extends Component {
         />
         <div className="form-history-container">
           <form className="form-container" onSubmit={this.addFunction}>
-            <h1 className="money-add-title">Add Money</h1>
+            <h1 className="money-add-title">Add Transaction</h1>
 
             <label htmlFor="name">Title</label>
             <br />
-            <input id="name" placeholder="Title" className="title-input" />
+            <input
+              value={titleInp}
+              id="name"
+              onChange={this.titleEleOnChangeFunction}
+              placeholder="Title"
+              className="title-input"
+            />
             <br />
             <br />
             <label htmlFor="name">Amount</label>
             <br />
             <input
+              value={amountInp}
               id="name"
               type="number"
+              onChange={this.amountEleOnChangeFunction}
               placeholder="Amount"
               className="title-input"
             />
@@ -104,8 +151,9 @@ class MoneyManager extends Component {
             <label htmlFor="type">Type</label>
             <br />
             <select
+              value={amountType}
               id="type"
-              onChange={this.typeBtnOnchange}
+              onChange={this.typeEleOnChangeFunction}
               className="title-input select-btn"
             >
               {transactionTypeOptions.map(each => (
@@ -130,7 +178,11 @@ class MoneyManager extends Component {
               </li>
 
               {amountList.map(each => (
-                <TransactionItemList val={each} key={each.id} />
+                <TransactionItemList
+                  val={each}
+                  delFun={this.deleteList}
+                  key={each.id}
+                />
               ))}
             </ul>
           </div>

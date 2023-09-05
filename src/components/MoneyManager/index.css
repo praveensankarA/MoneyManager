@@ -62,6 +62,7 @@
   padding: 20px 30px;
   margin-bottom: 50px;
   width: 100%;
+  max-height: 80vh;
 }
 @media (min-width: 588px) {
   .form-container {

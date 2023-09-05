@@ -2,13 +2,17 @@
 import './index.css'
 
 const TransactionItemList = props => {
-  const {val} = props
+  const {val, delFun} = props
+  const del = () => {
+    delFun(val.id)
+  }
+
   return (
     <li className="history-list-items">
       <p>{val.title}</p>
       <p>{val.amount}</p>
       <p>{val.type}</p>
-      <button type="button" className="del-btn">
+      <button onClick={del} type="button" className="del-btn">
         <img
           src="https://assets.ccbp.in/frontend/react-js/money-manager/delete.png"
           alt="delete"

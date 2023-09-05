@@ -20,7 +20,7 @@ const moneyDetails = props => {
       <div className="monet-type-logo-card income">
         <img
           src="https://assets.ccbp.in/frontend/react-js/money-manager/income-image.png "
-          alt="balance"
+          alt="income"
           className="money-logo"
         />
         <div className="money-type-name-container">
@@ -31,11 +31,11 @@ const moneyDetails = props => {
       <div className="monet-type-logo-card expense">
         <img
           src="https://assets.ccbp.in/frontend/react-js/money-manager/expenses-image.png"
-          alt="balance"
+          alt="expenses"
           className="money-logo"
         />
         <div className="money-type-name-container">
-          <p className="money-type-name-ele">Your Expense</p>
+          <p className="money-type-name-ele">Your Expenses</p>
           <p className="money-type-amount-ele">Rs {expenseAmount}</p>
         </div>
       </div>
